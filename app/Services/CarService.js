@@ -11,7 +11,6 @@ class CarService {
   constructor() {
     this.getCars()
   }
-  
   bid(carId) {
     let car = _store.State.cars.find(car => car.id == carId);
     if (car) {

@@ -5,7 +5,7 @@ import JobController from "./Controllers/JobController.js";
 class App {
   carController = new CarController();
   houseController = new HouseController();
-  jobControlloer = new JobController()
+  jobController = new JobController();
 }
 
 window["app"] = new App();

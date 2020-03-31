@@ -34,9 +34,6 @@ export default class CarController {
     formData.reset()
     // @ts-ignore
     $('#add-car-modal').modal('toggle')
-    _drawCars()
-
-    console.log(newCarObject)
   }
 
   delete(carId) {

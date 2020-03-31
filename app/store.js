@@ -16,7 +16,8 @@ let _state = {
  */
 let _listeners = {
   cars: [],
-  houses: []
+  houses: [],
+  jobs: []
 };
 
 //NOTE You should not need to change the code from this point down
