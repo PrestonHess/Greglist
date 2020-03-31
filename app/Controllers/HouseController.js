@@ -2,16 +2,16 @@ import _houseService from '../Services/HouseService.js'
 import _store from '../store.js'
 
 function _drawHouses(){
-  let template = '';
-  let houses = _store.State.house;
+  let template = '<div class="col-12"><h3 class="text-center">House Listings</h3></div>';
+  let houses = _store.State.houses;
 
-  houses.forEach((house, index) => template += house.getTemplate(index));
+  houses.forEach(house => template += house.getTemplate());
   document.getElementById('houses').innerHTML = template;
 }
 
 export default class HouseController{
   constructor() {
-    console.log('House Controller works');
+    _store.subscribe('houses', _drawHouses);
   }
 
   create(event) {
@@ -22,6 +22,8 @@ export default class HouseController{
       bathrooms: formData.bathrooms.value,
       bedrooms: formData.bedrooms.value,
       price: formData.price.value,
+      year: formData.year.value,
+      levels: formData.levels.value,
       description: formData.description.value,
       imgUrl: formData.imgUrl.value
     }
@@ -30,12 +32,14 @@ export default class HouseController{
     formData.reset()
     // @ts-ignore
     $('#add-house-modal').modal('toggle')
-    _drawHouses()
   }
 
-  delete(index) {
-    _houseService.delete(index)
-    _drawHouses()
+  delete(houseId) {
+    _houseService.delete(houseId)
+  }
+
+  bid(houseId) {
+    _houseService.bid(houseId)
   }
 
 }

@@ -4,7 +4,7 @@ import _store from '../store.js'
 
 //NOTE we need the element to put them in, access to the array of cars in the store, blank template to add them to, and a template for how they are displayed
 function _drawCars() {
-  let template = ''
+  let template = '<div class="col-12"><h3 class="text-center">Cars Listings</h3></div>'
   let cars = _store.State.cars
 
   cars.forEach((car, index) => template += car.getTemplate(index))
@@ -14,7 +14,6 @@ function _drawCars() {
 
 export default class CarController {
   constructor() {
-    console.log("car controller works")
     _store.subscribe('cars', _drawCars)
   }
 
@@ -40,9 +39,12 @@ export default class CarController {
     console.log(newCarObject)
   }
 
-  delete(index) {
-    _carService.delete(index)
-    _drawCars()
+  delete(carId) {
+    _carService.delete(carId)
+  }
+
+  bid(carId){
+    _carService.bid(carId)
   }
 
 
