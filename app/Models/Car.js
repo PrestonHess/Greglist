@@ -21,6 +21,4 @@ export default class Car {
       <button class="btn btn-success btn-block" onclick="app.carController.bid('${this.id}')">Bid + $250</button>
     </div>`
   }
-
-
 }

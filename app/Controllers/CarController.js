@@ -46,6 +46,4 @@ export default class CarController {
   bid(carId){
     _carService.bid(carId)
   }
-
-
 }
